@@ -43,20 +43,31 @@ class App extends Component {
   }
 
   render() {
-    return (
-    <div className="App">
-      <a href='process.env.PORT || http://localhost:8888'>
-      <button>Login But With Spotify </button>
-      </a>
-      <div> Now Playing: { this.state.nowPlaying.name} </div>
-    <div>
-    <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
-    </div>
-    <button onClick={() => this.getNowPlaying()}>
-      Check Now Playing
-    </button>
-    </div>
-    )
+    if (this.state.nowPlaying.name !== null)
+      return (
+      <div className="App">
+        <a href='http://localhost:8888'>
+        <button>Login But With Spotify </button>
+        </a>
+        <div> Now Playing: { this.state.nowPlaying.name} </div>
+      <div>
+      <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
+      </div>
+      <button onClick={() => this.getNowPlaying()}>
+        Check Now Playing
+      </button>
+      </div>
+      )
+    else{
+      return (
+        <div className="App">
+          <a href='http://localhost:8888'>
+          <button>Login But With Spotify </button>
+          </a>
+          Nothing is Playing Right Now
+        </div>
+      )
+    }
   }
 }
 
