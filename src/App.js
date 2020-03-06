@@ -40,6 +40,17 @@ class App extends Component {
   componentWillUnmount() {
     clearInterval(this.Interval);
   }
+  componentDidMount() {
+    this.Interval = setInterval(
+      () => this.getNowPlaying(),
+      1000
+    );
+    this.getNowPlaying();
+  }
+  componentWillUnmount() {
+    clearInterval(this.Interval);
+  }
+
   getHashParams() {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -83,11 +94,14 @@ class App extends Component {
       <div> Now Playing: { this.state.nowPlaying.name} </div>
       <div> By: { this.state.nowPlaying.artist} </div>
       <div> Id: { this.state.nowPlaying.id} </div>
-      <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
-
-      }
+      <div>
+        <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
+      </div>
     </div>
     )
   }
 }
+
+
 export default App;
+
