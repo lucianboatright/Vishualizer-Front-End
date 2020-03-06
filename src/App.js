@@ -45,7 +45,7 @@ class App extends Component {
   render() {
     return (
     <div className="App">
-      <a href='process.env.PORT || http://localhost:8888'>
+      <a href='http://localhost:8888'>
       <button>Login But With Spotify </button>
       </a>
       <div> Now Playing: { this.state.nowPlaying.name} </div>
