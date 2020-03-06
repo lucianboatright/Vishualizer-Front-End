@@ -37,11 +37,14 @@ class AudioFeatures extends Component {
         <div> Selected song danceability: { this.state.songFeatures.danceability }</div>
         <div> Selected song key: { this.state.songFeatures.key }</div>
         <div> Selected song time signature: { this.state.songFeatures.time_signature }</div>
-        <div> Selected song duration: { this.state.songFeatures.duration }</div>
+        <div> Selected song duration: { this.state.songFeatures.duration_ms }</div>
         <div> Selected song energy: { this.state.songFeatures.energy }</div>
         <div> Selected song tempo: { this.state.songFeatures.tempo }</div>
         <div> Selected song acousticness: { this.state.songFeatures.acousticness }</div>
+        <div> Selected song instrumentalness: { this.state.songFeatures.instrumentalness }</div>
         <div> Selected song valence: { this.state.songFeatures.valence }</div>
+        <div> Selected song liveness: { this.state.songFeatures.liveness }</div>
+        <div> Selected song loudness: { this.state.songFeatures.loudness }</div>
     </div>
     )
   }

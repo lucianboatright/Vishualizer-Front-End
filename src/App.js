@@ -15,7 +15,8 @@ class App extends Component {
         name: 'Not Checked',
         image: '',
         artist: '',
-        id: ''
+        id: '',
+        progress: ''
        },
       oAuth: params.access_token
      }
@@ -55,12 +56,14 @@ class App extends Component {
           return
         }
         if (this.state.nowPlaying.id !== response.item.id) {
+          console.log('response', response)
           this.setState({
             nowPlaying: {
               name: response.item.name,
               image: response.item.album.images[1].url,
               artist: response.item.artists[0].name,
-              id: response.item.id
+              id: response.item.id,
+              progress: response.progress_ms
             }
           })
           this.audioFeatures.current.onTrackUpdated(response.item.id)
@@ -77,6 +80,7 @@ class App extends Component {
       <div> Now Playing: { this.state.nowPlaying.name} </div>
       <div> By: { this.state.nowPlaying.artist} </div>
       <div> Id: { this.state.nowPlaying.id} </div>
+      <div> Progress: { this.state.nowPlaying.progress} </div>
       <div>
         <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
       </div>
