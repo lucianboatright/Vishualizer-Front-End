@@ -1,23 +1,44 @@
 import React, { Component } from 'react';
 import './App.css';
+// import AudioFeatures from './audioFeatures';
 import Spotify from 'spotify-web-api-js';
-
 const spotifyWebApi = new Spotify();
-
 class App extends Component {
   constructor(){
     super();
     const params = this.getHashParams();
     this.state ={
-      loggedIn: params.access_token ? true : false,
+      loggedIn: params.access_token !== undefined,
       nowPlaying: {
         name: 'Not Checked',
-        image: ''
-       }
+        image: '',
+        artist: '',
+        id: ''
+       },
+       audioFeatures: {
+        danceability: ''
+      },
+      oAuth: params.access_token
      }
     if (params.access_token){
       spotifyWebApi.setAccessToken(params.access_token)
     }
+    // this tells react that this.audioFeatures is
+    // another react component that can be referenced
+    // and perform special actions such as calling methods
+    // on this component.
+    // this.audioFeatures = React.createRef()
+  }
+  
+  componentDidMount() {
+    this.Interval = setInterval(
+      () => this.getNowPlaying(),
+      5000
+    );
+    this.getNowPlaying();
+  }
+  componentWillUnmount() {
+    clearInterval(this.Interval);
   }
   componentDidMount() {
     this.Interval = setInterval(
@@ -39,22 +60,31 @@ class App extends Component {
     }
     return hashParams;
   }
-
   getNowPlaying(){
+    if (!this.state.loggedIn) {
+      return
+    }
     spotifyWebApi.getMyCurrentPlaybackState()
       .then((response) => {
-        this.setState({
-          nowPlaying: {
-            name: response.item.name,
-            image: response.item.album.images[1].url,
-            artist: response.item.artists[0].name,
-            id: response.item.id
-          }
-        })
+        if (!response) {
+          return
+        }
+        if (this.state.nowPlaying.id !== response.item.id) {
+          this.setState({
+            nowPlaying: {
+              name: response.item.name,
+              image: response.item.album.images[1].url,
+              artist: response.item.artists[0].name,
+              id: response.item.id
+            }
+          })
+          // .current return the real live actual reference of
+          //this.audioFeatures, ie the component
+          this.audioFeatures.current.onTrackUpdated(response.item.id)
+        }
       }
     )
   }
-
   render() {
     return (
     <div className="App">
@@ -72,4 +102,6 @@ class App extends Component {
   }
 }
 
+
 export default App;
+
