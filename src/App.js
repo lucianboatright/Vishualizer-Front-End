@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-// import AudioFeatures from './audioFeatures';
+import AudioFeatures from './AudioFeatures';
 import Spotify from 'spotify-web-api-js';
+
 const spotifyWebApi = new Spotify();
+
 class App extends Component {
   constructor(){
     super();
@@ -15,35 +17,18 @@ class App extends Component {
         artist: '',
         id: ''
        },
-       audioFeatures: {
-        danceability: ''
-      },
       oAuth: params.access_token
      }
     if (params.access_token){
       spotifyWebApi.setAccessToken(params.access_token)
     }
-    // this tells react that this.audioFeatures is
-    // another react component that can be referenced
-    // and perform special actions such as calling methods
-    // on this component.
-    // this.audioFeatures = React.createRef()
+    this.audioFeatures = React.createRef()
   }
   
   componentDidMount() {
     this.Interval = setInterval(
       () => this.getNowPlaying(),
       5000
-    );
-    this.getNowPlaying();
-  }
-  componentWillUnmount() {
-    clearInterval(this.Interval);
-  }
-  componentDidMount() {
-    this.Interval = setInterval(
-      () => this.getNowPlaying(),
-      1000
     );
     this.getNowPlaying();
   }
@@ -78,8 +63,6 @@ class App extends Component {
               id: response.item.id
             }
           })
-          // .current return the real live actual reference of
-          //this.audioFeatures, ie the component
           this.audioFeatures.current.onTrackUpdated(response.item.id)
         }
       }
@@ -97,6 +80,18 @@ class App extends Component {
       <div>
         <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
       </div>
+      { (() => {
+          if (this.state.nowPlaying.id) {
+            return (
+              <AudioFeatures 
+               id={this.state.nowPlaying.id}
+               ref={this.audioFeatures}
+               oAuth={this.state.oAuth}
+              />
+            );
+          }
+        })()
+      }
     </div>
     )
   }
