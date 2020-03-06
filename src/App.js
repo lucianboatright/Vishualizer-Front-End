@@ -19,6 +19,17 @@ class App extends Component {
       spotifyWebApi.setAccessToken(params.access_token)
     }
   }
+  componentDidMount() {
+    this.Interval = setInterval(
+      () => this.getNowPlaying(),
+      1000
+    );
+    this.getNowPlaying();
+  }
+  componentWillUnmount() {
+    clearInterval(this.Interval);
+  }
+
   getHashParams() {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -35,7 +46,9 @@ class App extends Component {
         this.setState({
           nowPlaying: {
             name: response.item.name,
-            image: response.item.album.images[1].url
+            image: response.item.album.images[1].url,
+            artist: response.item.artists[0].name,
+            id: response.item.id
           }
         })
       }
@@ -49,16 +62,14 @@ class App extends Component {
       <button>Login But With Spotify </button>
       </a>
       <div> Now Playing: { this.state.nowPlaying.name} </div>
-    <div>
-    <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
-    </div>
-    <button onClick={() => this.getNowPlaying()}>
-      Check Now Playing
-    </button>
+      <div> By: { this.state.nowPlaying.artist} </div>
+      <div> Id: { this.state.nowPlaying.id} </div>
+      <div>
+        <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
+      </div>
     </div>
     )
   }
 }
 
-console.log("Now you have reached the client page")
 export default App;
