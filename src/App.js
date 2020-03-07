@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import AudioFeatures from './AudioFeatures';
 import Spotify from 'spotify-web-api-js';
 
 const spotifyWebApi = new Spotify();
@@ -9,16 +10,33 @@ class App extends Component {
     super();
     const params = this.getHashParams();
     this.state ={
-      loggedIn: params.access_token ? true : false,
+      loggedIn: params.access_token !== undefined,
       nowPlaying: {
         name: 'Not Checked',
-        image: ''
-       }
+        image: '',
+        artist: '',
+        id: '',
+        progress: ''
+       },
+      oAuth: params.access_token
      }
     if (params.access_token){
       spotifyWebApi.setAccessToken(params.access_token)
     }
+    this.audioFeatures = React.createRef()
   }
+  
+  componentDidMount() {
+    this.Interval = setInterval(
+      () => this.getNowPlaying(),
+      5000
+    );
+    this.getNowPlaying();
+  }
+  componentWillUnmount() {
+    clearInterval(this.Interval);
+  }
+
   getHashParams() {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -28,48 +46,61 @@ class App extends Component {
     }
     return hashParams;
   }
-
   getNowPlaying(){
+    if (!this.state.loggedIn) {
+      return
+    }
     spotifyWebApi.getMyCurrentPlaybackState()
       .then((response) => {
-        this.setState({
-          nowPlaying: {
-            name: response.item.name,
-            image: response.item.album.images[1].url
-          }
-        })
+        if (!response) {
+          return
+        }
+        if (this.state.nowPlaying.id !== response.item.id) {
+          console.log('response', response)
+          this.setState({
+            nowPlaying: {
+              name: response.item.name,
+              image: response.item.album.images[1].url,
+              artist: response.item.artists[0].name,
+              id: response.item.id,
+              progress: response.progress_ms
+            }
+          })
+          this.audioFeatures.current.onTrackUpdated(response.item.id)
+        }
       }
     )
   }
-
   render() {
-    if (this.state.nowPlaying.name !== null)
-      return (
-      <div className="App">
-        <a href='http://localhost:8888'>
-        <button>Login But With Spotify </button>
-        </a>
-        <div> Now Playing: { this.state.nowPlaying.name} </div>
+    return (
+    <div className="App">
+      <a href='http://localhost:8888'>
+      <button>Login But With Spotify </button>
+      </a>
+      <div> Now Playing: { this.state.nowPlaying.name} </div>
+      <div> By: { this.state.nowPlaying.artist} </div>
+      <div> Id: { this.state.nowPlaying.id} </div>
+      <div> Progress: { this.state.nowPlaying.progress} </div>
       <div>
-      <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
+        <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
       </div>
-      <button onClick={() => this.getNowPlaying()}>
-        Check Now Playing
-      </button>
-      </div>
-      )
-    else{
-      return (
-        <div className="App">
-          <a href='http://localhost:8888'>
-          <button>Login But With Spotify </button>
-          </a>
-          Nothing is Playing Right Now
-        </div>
-      )
-    }
+      { (() => {
+          if (this.state.nowPlaying.id) {
+            return (
+              <AudioFeatures 
+               id={this.state.nowPlaying.id}
+               ref={this.audioFeatures}
+               oAuth={this.state.oAuth}
+              />
+            );
+          }
+        })()
+      }
+    </div>
+    )
   }
 }
 
-console.log("Now you have reached the client page")
+
 export default App;
+
