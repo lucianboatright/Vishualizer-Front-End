@@ -8,7 +8,7 @@ const spotifyWebApi = new Spotify();
 class App extends Component {
   constructor(){
     super();
-    const params = this.getHashParams();
+    const params = this.getHashParams();    
     this.state ={
       loggedIn: params.access_token !== undefined,
       nowPlaying: {

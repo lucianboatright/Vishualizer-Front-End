@@ -29,13 +29,14 @@ class AudioFeatures extends Component {
   }
 
   render() {
+    const keyInteger = {0: 'C', 1: 'C♯/D♭', 2: 'D', 3: 'D♯/E♭', 4: 'E', 5: 'F', 6: 'F♯/G♭', 7: 'G', 8: 'G♯/A♭', 9: 'A', 10: 'A♯/B♭', 11: 'B'}
     if (!this.state.songFeatures) {
       return <div></div>
     }
     return (
     <div className="AudioFeatures">
         <div> Selected song danceability: { this.state.songFeatures.danceability }</div>
-        <div> Selected song key: { this.state.songFeatures.key }</div>
+        <div> Selected song key: { keyInteger[this.state.songFeatures.key] }</div>
         <div> Selected song time signature: { this.state.songFeatures.time_signature }</div>
         <div> Selected song duration: { this.state.songFeatures.duration_ms }</div>
         <div> Selected song energy: { this.state.songFeatures.energy }</div>
