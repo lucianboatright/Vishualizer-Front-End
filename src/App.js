@@ -89,6 +89,8 @@ class App extends Component {
           } else {
           return (
             <div>
+              <h1>Please Login Using Spotify</h1>
+              <br></br>
               <a href='http://localhost:8888'>
                 <button>Login</button>
               </a>
