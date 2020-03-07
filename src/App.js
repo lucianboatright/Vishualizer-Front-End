@@ -23,6 +23,8 @@ class App extends Component {
     if (params.access_token){
       spotifyWebApi.setAccessToken(params.access_token)
     }
+    localStorage.setItem("spotify_access_token", params.access_token);
+
     this.audioFeatures = React.createRef()
   }
   
