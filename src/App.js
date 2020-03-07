@@ -76,13 +76,27 @@ class App extends Component {
   }
   render() {
     return (
-    <div className="App">
-      <a href='http://localhost:8888'>
-      <button>Log in </button>
-      </a>
-      <a href='https://accounts.spotify.com/en/logout '>
-      <button>Log out</button>
-      </a>
+      <div className="App">
+        { (() => {
+          if (this.state.loggedIn) {
+            return (
+              <div className="authentication">
+                <a href='https://accounts.spotify.com/en/logout '>
+                  <button>Logout</button>
+                </a>
+              </div>
+            );
+          } else {
+          return (
+            <div>
+              <a href='http://localhost:8888'>
+                <button>Login</button>
+              </a>
+            </div>
+          );
+        }
+      })()
+    }
 
       { (() => {
           if (this.state.nowPlaying.id) {
@@ -106,7 +120,6 @@ class App extends Component {
           } else {
             return "No Playback detected";
           }
-
         })()
       }
     </div>
