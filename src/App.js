@@ -25,7 +25,7 @@ class App extends Component {
     }
     this.audioFeatures = React.createRef()
   }
-  
+
   componentDidMount() {
     this.Interval = setInterval(
       () => this.getNowPlaying(),
@@ -75,8 +75,12 @@ class App extends Component {
     return (
     <div className="App">
       <a href='http://localhost:8888'>
-      <button>Login But With Spotify </button>
+      <button>Log in </button>
       </a>
+      <a href='https://accounts.spotify.com/en/logout '>
+      <button>Log out</button>
+      </a>
+
       <div> Now Playing: { this.state.nowPlaying.name} </div>
       <div> By: { this.state.nowPlaying.artist} </div>
       <div> Id: { this.state.nowPlaying.id} </div>
@@ -86,8 +90,9 @@ class App extends Component {
       </div>
       { (() => {
           if (this.state.nowPlaying.id) {
+
             return (
-              <AudioFeatures 
+              <AudioFeatures
                id={this.state.nowPlaying.id}
                ref={this.audioFeatures}
                oAuth={this.state.oAuth}
@@ -103,4 +108,3 @@ class App extends Component {
 
 
 export default App;
-
