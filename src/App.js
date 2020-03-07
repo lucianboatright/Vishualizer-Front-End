@@ -27,7 +27,7 @@ class App extends Component {
 
     this.audioFeatures = React.createRef()
   }
-  
+
   componentDidMount() {
     this.Interval = setInterval(
       () => this.getNowPlaying(),
@@ -56,6 +56,7 @@ class App extends Component {
       .then((response) => {
         if (!response) {
           return
+
         }
         if (this.state.nowPlaying.id !== response.item.id) {
           console.log('response', response)
@@ -77,25 +78,35 @@ class App extends Component {
     return (
     <div className="App">
       <a href='http://localhost:8888'>
-      <button>Login But With Spotify </button>
+      <button>Log in </button>
       </a>
-      <div> Now Playing: { this.state.nowPlaying.name} </div>
-      <div> By: { this.state.nowPlaying.artist} </div>
-      <div> Id: { this.state.nowPlaying.id} </div>
-      <div> Progress: { this.state.nowPlaying.progress} </div>
-      <div>
-        <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
-      </div>
+      <a href='https://accounts.spotify.com/en/logout '>
+      <button>Log out</button>
+      </a>
+
       { (() => {
           if (this.state.nowPlaying.id) {
+
             return (
-              <AudioFeatures 
-               id={this.state.nowPlaying.id}
-               ref={this.audioFeatures}
-               oAuth={this.state.oAuth}
-              />
+              <div>
+                <div> Now Playing: { this.state.nowPlaying.name} </div>
+                <div> By: { this.state.nowPlaying.artist} </div>
+                <div> Id: { this.state.nowPlaying.id} </div>
+                <div> Progress: { this.state.nowPlaying.progress} </div>
+                <div>
+                  <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
+                </div>
+                <AudioFeatures
+                 id={this.state.nowPlaying.id}
+                 ref={this.audioFeatures}
+                 oAuth={this.state.oAuth}
+                />
+              </div>
             );
+          } else {
+            return "No Playback detected";
           }
+
         })()
       }
     </div>
@@ -105,4 +116,3 @@ class App extends Component {
 
 
 export default App;
-
