@@ -8,7 +8,7 @@ const spotifyWebApi = new Spotify();
 class App extends Component {
   constructor(){
     super();
-    const params = this.getHashParams();
+    const params = this.getHashParams();    
     this.state ={
       loggedIn: params.access_token !== undefined,
       nowPlaying: {
@@ -24,6 +24,7 @@ class App extends Component {
       spotifyWebApi.setAccessToken(params.access_token)
     }
     localStorage.setItem("spotify_access_token", params.access_token);
+
     this.audioFeatures = React.createRef()
   }
   
