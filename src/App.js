@@ -54,6 +54,7 @@ class App extends Component {
       .then((response) => {
         if (!response) {
           return
+
         }
         if (this.state.nowPlaying.id !== response.item.id) {
           console.log('response', response)
@@ -81,22 +82,24 @@ class App extends Component {
       <button>Log out</button>
       </a>
 
-      <div> Now Playing: { this.state.nowPlaying.name} </div>
-      <div> By: { this.state.nowPlaying.artist} </div>
-      <div> Id: { this.state.nowPlaying.id} </div>
-      <div> Progress: { this.state.nowPlaying.progress} </div>
-      <div>
-        <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
-      </div>
       { (() => {
           if (this.state.nowPlaying.id) {
 
             return (
+              <div>
+              <div> Now Playing: { this.state.nowPlaying.name} </div>
+              <div> By: { this.state.nowPlaying.artist} </div>
+              <div> Id: { this.state.nowPlaying.id} </div>
+              <div> Progress: { this.state.nowPlaying.progress} </div>
+              <div>
+                <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
+              </div>
               <AudioFeatures
                id={this.state.nowPlaying.id}
                ref={this.audioFeatures}
                oAuth={this.state.oAuth}
               />
+              </div>
             );
           }
         })()
