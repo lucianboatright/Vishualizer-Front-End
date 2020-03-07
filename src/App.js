@@ -87,21 +87,24 @@ class App extends Component {
 
             return (
               <div>
-              <div> Now Playing: { this.state.nowPlaying.name} </div>
-              <div> By: { this.state.nowPlaying.artist} </div>
-              <div> Id: { this.state.nowPlaying.id} </div>
-              <div> Progress: { this.state.nowPlaying.progress} </div>
-              <div>
-                <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
-              </div>
-              <AudioFeatures
-               id={this.state.nowPlaying.id}
-               ref={this.audioFeatures}
-               oAuth={this.state.oAuth}
-              />
+                <div> Now Playing: { this.state.nowPlaying.name} </div>
+                <div> By: { this.state.nowPlaying.artist} </div>
+                <div> Id: { this.state.nowPlaying.id} </div>
+                <div> Progress: { this.state.nowPlaying.progress} </div>
+                <div>
+                  <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
+                </div>
+                <AudioFeatures
+                 id={this.state.nowPlaying.id}
+                 ref={this.audioFeatures}
+                 oAuth={this.state.oAuth}
+                />
               </div>
             );
+          } else {
+            return "No Playback detected";
           }
+
         })()
       }
     </div>
