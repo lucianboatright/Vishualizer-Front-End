@@ -1,14 +1,21 @@
-body
-{
-  
+body{
+   background-image: linear-gradient(to top,
+     #000000, #090909, #111111, #161616,
+     #1b1b1b, #1b1b1b, #1b1b1b, #1b1b1b,
+     #161616, #111111, #090909, #000000);
+   background-size: 1450px 1000px;
+   background-repeat: no-repeat;
+   background-position: fixed;
 }
 
 .App {
 
   text-align: center;
-  color: black;
+  color: white;
+
 
 }
+
 
 .App-logo {
   height: 40vmin;

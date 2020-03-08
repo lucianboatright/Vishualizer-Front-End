@@ -3,6 +3,7 @@ import './App.css';
 import AudioFeatures from './AudioFeatures';
 import Spotify from 'spotify-web-api-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
 
 const spotifyWebApi = new Spotify();
 
@@ -83,7 +84,9 @@ class App extends Component {
             return (
               <div className="authentication">
                 <a href='https://accounts.spotify.com/en/logout '>
-                  <button>Logout</button>
+                  <Button variant="outline-success" size="lg">
+                     Log out 
+                    </Button>
                 </a>
               </div>
             );
@@ -93,7 +96,9 @@ class App extends Component {
               <h1>Please Login Using Spotify</h1>
               <br></br>
               <a href='http://localhost:8888'>
-                <button>Login</button>
+                <Button variant="outline-success" size="lg">
+                   Login
+                  </Button>
               </a>
             </div>
           );
