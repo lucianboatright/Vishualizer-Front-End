@@ -93,6 +93,11 @@ class App extends Component {
           } else {
           return (
             <div>
+            <div class="spotify">
+              <div class="bar bar-dark"></div>
+              <div class="bar bar-med"></div>
+              <div class="bar bar-light"></div>
+            </div>
               <h1>Please Login Using Spotify</h1>
               <br></br>
               <a href='http://localhost:8888'>
