@@ -136,6 +136,6 @@ class App extends Component {
     )
   }
 }
-
+console.log("YEEEHAAA", localStorage.getItem('sound_features'))
 
 export default App;
