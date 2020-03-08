@@ -82,10 +82,10 @@ class App extends Component {
         { (() => {
           if (this.state.loggedIn) {
             return (
-              <div className="authentication">
+              <div className="logout-btn">
                 <a href='https://accounts.spotify.com/en/logout '>
-                  <Button variant="outline-success" size="lg">
-                     Log out 
+                  <Button variant="outline-success" size="sm">
+                     Log out
                     </Button>
                 </a>
               </div>
@@ -107,14 +107,11 @@ class App extends Component {
     }
 
       { (() => {
-          if (this.state.nowPlaying.id) {
+          if (this.state.loggedIn && this.state.nowPlaying.id) {
 
             return (
               <div>
-                <div> Now Playing: { this.state.nowPlaying.name} </div>
-                <div> By: { this.state.nowPlaying.artist} </div>
-                <div> Id: { this.state.nowPlaying.id} </div>
-                <div> Progress: { this.state.nowPlaying.progress} </div>
+                <div><h2>Now Playing:</h2> <h5>{ this.state.nowPlaying.name}, &nbsp;{ this.state.nowPlaying.artist}</h5></div>
                 <div>
                   <img src={ this.state.nowPlaying.image} style={{ width: 200}}/>
                 </div>
