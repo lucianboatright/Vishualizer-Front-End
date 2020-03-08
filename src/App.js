@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import AudioFeatures from './AudioFeatures';
 import Spotify from 'spotify-web-api-js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const spotifyWebApi = new Spotify();
 
 class App extends Component {
   constructor(){
     super();
-    const params = this.getHashParams();    
+    const params = this.getHashParams();
     this.state ={
       loggedIn: params.access_token !== undefined,
       nowPlaying: {
@@ -110,7 +111,7 @@ class App extends Component {
                 <div> Id: { this.state.nowPlaying.id} </div>
                 <div> Progress: { this.state.nowPlaying.progress} </div>
                 <div>
-                  <img src={ this.state.nowPlaying.image} style={{ width: 100}}/>
+                  <img src={ this.state.nowPlaying.image} style={{ width: 200}}/>
                 </div>
                 <AudioFeatures
                  id={this.state.nowPlaying.id}
