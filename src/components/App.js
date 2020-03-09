@@ -4,7 +4,7 @@ import AudioFeatures from './AudioFeatures';
 import VisualizerInfo from './VisualizerInfo';
 import UserFeatures from './UserFeatures'
 
-import PlayerController from './PlayerController'
+// import PlayerController from './PlayerController'
 import Spotify from 'spotify-web-api-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
@@ -83,7 +83,7 @@ class App extends Component {
   }
   render() {
     console.log("YEEEHAAA 2", AudioFeatures)
-    console.log(JSON.stringify(sessionStorage.getItem('sound_features'))
+    // console.log(JSON.stringify(sessionStorage.getItem('sound_features'))
     return (
       <div className="App">
         { (() => {
