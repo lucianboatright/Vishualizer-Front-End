@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import AudioFeatures from './AudioFeatures';
+import VisualizerInfo from './VisualizerInfo';
+import UserFeatures from './UserFeatures'
+
+// import PlayerController from './PlayerController'
 import Spotify from 'spotify-web-api-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
@@ -26,6 +30,7 @@ class App extends Component {
       spotifyWebApi.setAccessToken(params.access_token)
     }
     localStorage.setItem("spotify_access_token", params.access_token);
+    localStorage.setItem("user_id", params.access_token);
 
     this.audioFeatures = React.createRef()
   }
@@ -61,7 +66,7 @@ class App extends Component {
 
         }
         if (this.state.nowPlaying.id !== response.item.id) {
-          console.log('response', response)
+          console.log('INITIAL RESPONCE APP.js', response)
           this.setState({
             nowPlaying: {
               name: response.item.name,
@@ -77,6 +82,8 @@ class App extends Component {
     )
   }
   render() {
+    console.log("YEEEHAAA 2", AudioFeatures)
+    // console.log(JSON.stringify(sessionStorage.getItem('sound_features'))
     return (
       <div className="App">
         { (() => {
@@ -120,12 +127,24 @@ class App extends Component {
                 <div>
                   <img src={ this.state.nowPlaying.image} style={{ width: 200}}/>
                 </div>
-                <AudioFeatures
-                 id={this.state.nowPlaying.id}
-                 ref={this.audioFeatures}
-                 oAuth={this.state.oAuth}
+
+                <UserFeatures
+                  ref={this.userFeatures}
+                  oAuth={this.state.oAuth}
                 />
-              </div>
+
+              <VisualizerInfo
+               id={this.state.nowPlaying.id}
+               ref={this.visInfo}
+               oAuth={this.state.oAuth}
+              />
+
+              <AudioFeatures
+               id={this.state.nowPlaying.id}
+               ref={this.audioFeatures}
+               oAuth={this.state.oAuth}
+              />
+             </div>
             );
           } else {
             return "No Playback detected";
