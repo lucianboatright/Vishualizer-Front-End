@@ -42,5 +42,4 @@ class UserFeatures extends Component {
   }
 }
 
-
 export default UserFeatures;
