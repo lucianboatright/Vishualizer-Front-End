@@ -132,7 +132,6 @@ class App extends Component {
                   ref={this.userFeatures}
                   oAuth={this.state.oAuth}
                 />
-               </div>
 
               <VisualizerInfo
                id={this.state.nowPlaying.id}
