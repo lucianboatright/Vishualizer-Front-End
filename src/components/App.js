@@ -122,7 +122,8 @@ class App extends Component {
           if (this.state.loggedIn && this.state.nowPlaying.id) {
 
             return (
-              <div>
+
+              <div class="currently-playing">
                 <div><h2>Now Playing:</h2> <h5>{ this.state.nowPlaying.name}, &nbsp;{ this.state.nowPlaying.artist}</h5></div>
                 <div>
                   <img src={ this.state.nowPlaying.image} style={{ width: 200}}/>
@@ -130,10 +131,10 @@ class App extends Component {
 
 
                 <div class="userwelcome">
-                <UserFeatures
-                  ref={this.userFeatures}
-                  oAuth={this.state.oAuth}
-                />
+                  <UserFeatures
+                    ref={this.userFeatures}
+                    oAuth={this.state.oAuth}
+                  />
                 </div>
 
               <VisualizerInfo
@@ -141,12 +142,13 @@ class App extends Component {
                ref={this.visInfo}
                oAuth={this.state.oAuth}
               />
-
-              <AudioFeatures
-               id={this.state.nowPlaying.id}
-               ref={this.audioFeatures}
-               oAuth={this.state.oAuth}
-              />
+              <div class="songinfo">
+                <AudioFeatures
+                id={this.state.nowPlaying.id}
+                ref={this.audioFeatures}
+                oAuth={this.state.oAuth}
+                />
+                </div>
              </div>
             );
           } else {
