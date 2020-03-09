@@ -42,7 +42,7 @@ class VisualizerInfo extends Component {
     }
     return (
     <div className="VisualizerInfo">
-     <div> OTHER INFO:  </div>
+     <div>   </div>
     </div>
     )
   }
