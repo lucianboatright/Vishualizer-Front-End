@@ -31,6 +31,7 @@ class App extends Component {
     }
     localStorage.setItem("spotify_access_token", params.access_token);
     localStorage.setItem("user_id", params.access_token);
+    localStorage.setItem("image", this.state.nowPlaying.image);
 
     this.audioFeatures = React.createRef()
   }
