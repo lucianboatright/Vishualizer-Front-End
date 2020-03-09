@@ -21,7 +21,7 @@ class UserFeatures extends Component {
         user: localStorage.getItem('user_id'),
         userFeatures: response,
       })
-      console.log("USER USER", response)
+      console.log("USER INFO RESPONSE", response)
     })
   }
 
@@ -36,6 +36,8 @@ class UserFeatures extends Component {
     return (
     <div className="UserFeatures">
         <div> User Name: { this.state.userFeatures.display_name }</div>
+        <div> User Country: { this.state.userFeatures.country }</div>
+        <div> User Email: { this.state.userFeatures.email }</div>
     </div>
     )
   }
