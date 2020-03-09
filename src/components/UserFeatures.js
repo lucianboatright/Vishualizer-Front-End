@@ -35,9 +35,7 @@ class UserFeatures extends Component {
     }
     return (
     <div className="UserFeatures">
-        <div> User Name: { this.state.userFeatures.display_name }</div>
-        <div> User Country: { this.state.userFeatures.country }</div>
-        <div> User Email: { this.state.userFeatures.email }</div>
+        <div> <h3>Welcome { this.state.userFeatures.display_name }, { this.state.userFeatures.country }</h3></div>
     </div>
     )
   }

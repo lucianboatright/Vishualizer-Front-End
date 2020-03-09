@@ -128,10 +128,13 @@ class App extends Component {
                   <img src={ this.state.nowPlaying.image} style={{ width: 200}}/>
                 </div>
 
+
+                <div class="userwelcome">
                 <UserFeatures
                   ref={this.userFeatures}
                   oAuth={this.state.oAuth}
                 />
+                </div>
 
               <VisualizerInfo
                id={this.state.nowPlaying.id}
