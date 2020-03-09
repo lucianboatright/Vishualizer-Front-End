@@ -24,7 +24,6 @@ class UserFeatures extends Component {
       console.log("USER INFO RESPONSE", response)
     })
   }
-
   componentDidMount() {
     this.onTrackUpdated(this.props.track);
   }
