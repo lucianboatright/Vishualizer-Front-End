@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+
 class UserFeatures extends Component {
   constructor(props) {
     super(props)
@@ -21,7 +22,7 @@ class UserFeatures extends Component {
         user: localStorage.getItem('user_id'),
         userFeatures: response,
       })
-      console.log("USER INFO RESPONSE", response)
+      console.log("USER INFO RESPONSE 1", response)
     })
   }
   componentDidMount() {

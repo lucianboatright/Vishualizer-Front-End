@@ -21,7 +21,7 @@ class AudioFeatures extends Component {
         track: track,
         songFeatures: response, 
       })
-      console.log("SONG FEATURE RESPONCE", response)
+      console.log("SONG FEATURE RESPOSNCE", response)
       localStorage.setItem("sound_features", response)
       
     })
@@ -56,5 +56,6 @@ class AudioFeatures extends Component {
   }
 }
 console.log("END AUDIO FEATURE CLASS", localStorage.getItem('sound_features'))
+
 
 export default AudioFeatures;
