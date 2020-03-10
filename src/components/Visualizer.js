@@ -7,7 +7,7 @@ import "./App.css";
 
 class Visualizer extends Component {
   componentDidMount() {
-    helpers.multiply();
+    helpers.init()
     // for (var i = 0; i < 20; i++) {
     //   this.state.circleArray.push({
     //     x: Math.random() * window.innerWidth,
