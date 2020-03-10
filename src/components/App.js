@@ -164,7 +164,7 @@ class App extends Component {
             );
           } else {
             if (this.state.loggedIn) {
-              return "No Playback detected";
+              return <div class="no-playback"><h1>No Playback detected</h1></div>;
             }
           }
         })()}
