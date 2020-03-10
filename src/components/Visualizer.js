@@ -13,7 +13,7 @@ class Visualizer extends Component {
   }
 
   componentDidMount() {
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 100; i++) {
       this.state.circleArray.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,

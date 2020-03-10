@@ -133,13 +133,16 @@ class App extends Component {
           if (this.state.loggedIn && this.state.nowPlaying.id) {
             return (
               <div class="currently-playing">
-                <div>
+                <div className="now-playing">
                   <h2>Now Playing:</h2>
                   <h5>
-                    {this.state.nowPlaying.name}, {this.state.nowPlaying.artist}
+                    {this.state.nowPlaying.name} 
+                    <h5>
+                    {this.state.nowPlaying.artist}
+                    </h5>
                   </h5>
                 </div>
-                <div>
+                <div className="nowplayingimage">
                   <img
                     src={this.state.nowPlaying.image}
                     style={{ width: 200 }}

@@ -19,6 +19,10 @@ body {
   background-position: fixed;
 }
 
+.App{
+  margin: 0px;
+}
+
 .no-playback{
   position: fixed;
   display: block;
