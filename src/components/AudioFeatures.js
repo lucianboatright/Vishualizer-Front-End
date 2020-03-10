@@ -107,7 +107,7 @@ class AudioFeatures extends Component {
         </OverlayTrigger>
         <OverlayTrigger
         key='top'
-        overlay={<Tooltip>There is a {this.state.songFeatures.instrumentalness*100}% chance of vocals</Tooltip>}>
+        overlay={<Tooltip>There is a {this.state.songFeatures.instrumentalness*100}% chance of not having vocals</Tooltip>}>
         <Button variant='outline-light'> Instrumentalness: { setInstrumentalnessValue(this.state.songFeatures.instrumentalness) }</Button>
         </OverlayTrigger>
         <OverlayTrigger
