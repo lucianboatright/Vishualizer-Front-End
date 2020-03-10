@@ -7,7 +7,9 @@ import "./App.css";
 
 class Visualizer extends Component {
   componentDidMount() {
-    helpers.init()
+    helpers.init();
+    helpers.animate();
+    // helpers.animate();
     // for (var i = 0; i < 20; i++) {
     //   this.state.circleArray.push({
     //     x: Math.random() * window.innerWidth,
@@ -20,7 +22,6 @@ class Visualizer extends Component {
   }
 
   render() {
-    console.log("FROM Visualizer")
     return (
 
       <div></div>

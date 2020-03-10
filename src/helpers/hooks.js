@@ -12,17 +12,17 @@ const helpers = {
   init: function() {
 
     for (var i = 0; i < 100; i++){
-      console.log("HOOKS",this)
       var radius = Math.random() * 7 + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
       var dx = (Math.random() - 0.5) * 9;
       var dy = (Math.random() - 0.5) * 9;
-      
-      circleArray.push(this.MovingCircle(x,y,dx,dy,radius));
+  
+      circleArray.push(new this.MovingCircle(x,y,dx,dy,radius));
+
 
     }
-
+    console.log("CIRCLE",circleArray)
     // c.beginPath();
     // c.arc(x, y, 30, 0, Math.PI * 2, false);
     // c.strokeStyle = `rgba(${red}, ${green}, ${blue}, 0.8)`;
@@ -38,7 +38,6 @@ const helpers = {
 
 
   MovingCircle: function(x,y,dx,dy,radius){
-    console.log("THIS",this)
     this.x = x;
     this.y = y;
     this.dx = dx;
@@ -65,9 +64,18 @@ const helpers = {
       this.y += this.dy;
     };
    this.draw()
+   },
+
+     animate: function(){
+     requestAnimationFrame(this.animate);
+     c.clearRect(0,0,window.innerWidth, window.innerHeight);
+     for (var i = 0; i < circleArray.length; i++){
+       console.log("ANIMATE",circleArray[i])
+     }
    }
 
 }
+
 
 
 
