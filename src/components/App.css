@@ -77,6 +77,15 @@ html {
   overflow: hidden;
 }
 
+.spotifybutton{
+  position: fixed;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  top: 5px;
+}
+
 .bar {
   position: absolute;
   width: 320px;

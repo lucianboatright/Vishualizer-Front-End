@@ -112,7 +112,7 @@ class App extends Component {
             );
           } else {
             return (
-              <div>
+              <div class ="spotifybutton">
                 <div class="spotify">
                   <div class="bar bar-dark"></div>
                   <div class="bar bar-med"></div>
