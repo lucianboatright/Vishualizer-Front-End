@@ -28,7 +28,6 @@ class Visualizer extends Component {
   }
 
   render() {
-    console.log("Audioo", this.state.songInfo);
     return (
       <Stage
         width={window.innerWidth}
