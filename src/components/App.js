@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import "./App.css";
 import AudioFeatures from "./AudioFeatures";
-import Visualizer from "./Visualizer";
+// import Visualizer from "./Visualizer";
 import UserFeatures from "./UserFeatures";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -97,7 +97,6 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Visualizer />
         {(() => {
           if (this.state.loggedIn) {
             return (

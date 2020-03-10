@@ -13,7 +13,10 @@ class Visualizer extends Component {
   }
 
   componentDidMount() {
-    for (var i = 0; i < 10; i++) {
+    this.setState({
+      songInfo: this.props.songFeatures
+    });
+    for (var i = 0; i < 20; i++) {
       this.state.circleArray.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
@@ -25,6 +28,7 @@ class Visualizer extends Component {
   }
 
   render() {
+    console.log("Audioo", this.state.songInfo);
     return (
       <Stage
         width={window.innerWidth}

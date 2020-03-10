@@ -30,9 +30,11 @@ body {
   right: -20px;
   top: 30px;
   text-align: right;
+  z-index: inherit;
 }
 
 .currently-playing {
+  z-index: 1;
 }
 
 .userwelcome {
