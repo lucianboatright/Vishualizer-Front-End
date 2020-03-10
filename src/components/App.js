@@ -36,6 +36,7 @@ class App extends Component {
 
     this.audioFeatures = React.createRef();
   }
+  
 
   componentDidMount() {
     this.Interval = setInterval(() => this.getNowPlaying(), 5000);
@@ -97,7 +98,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Visualizer />
+        <Visualizer/>
         {(() => {
           if (this.state.loggedIn) {
             return (
@@ -128,7 +129,6 @@ class App extends Component {
             );
           }
         })()}
-
         {(() => {
           if (this.state.loggedIn && this.state.nowPlaying.id) {
             return (
