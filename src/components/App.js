@@ -120,7 +120,7 @@ class App extends Component {
                 </div>
                 <h1>Please Login Using Spotify</h1>
                 <br></br>
-                <a href="http://localhost:8888">
+                <a href="http://localhost:8888/login">
                   <Button variant="outline-success" size="lg">
                     Login
                   </Button>
