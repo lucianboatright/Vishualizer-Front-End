@@ -33,6 +33,8 @@ body {
 }
 
 .currently-playing {
+  position: fixed;
+  align-self: center;
 }
 
 .userwelcome {
