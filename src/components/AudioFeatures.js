@@ -63,7 +63,7 @@ class AudioFeatures extends Component {
       return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
     if (!this.state.songFeatures) {
-      return <div></div>
+      return <div className="not-rendering-songFeatures"></div>
     }
     
     

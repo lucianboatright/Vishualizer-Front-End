@@ -31,11 +31,11 @@ class UserFeatures extends Component {
 
   render() {
     if (!this.state.userFeatures) {
-      return <div></div>
+      return <div className="thisdiv"></div>
     }
     return (
     <div className="UserFeatures">
-        <div> <h3>Welcome { this.state.userFeatures.display_name }, { this.state.userFeatures.country }</h3></div>
+        <div className="userFeatures-rendered"> <h3>Welcome { this.state.userFeatures.display_name }, { this.state.userFeatures.country }</h3></div>
     </div>
     )
   }

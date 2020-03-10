@@ -39,7 +39,7 @@ class Animation extends Component {
 
   render() {
     return (
-      <div>
+      <div className="canvasrender">
         <canvas width={window.innerWidth} height={window.innerHeight} ref={this.canvasRef} />
       </div>
     );
