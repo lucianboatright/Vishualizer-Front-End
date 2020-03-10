@@ -1,40 +1,65 @@
-body{
-   background-image: linear-gradient(to top,
-     #000000, #090909, #111111, #161616,
-     #1b1b1b, #1b1b1b, #1b1b1b, #1b1b1b,
-     #161616, #111111, #090909, #000000);
-   background-size: 1950px 1150px;
-   background-repeat: no-repeat;
-   background-position: fixed;
+body {
+  background-image: linear-gradient(
+    to top,
+    #000000,
+    #090909,
+    #111111,
+    #161616,
+    #1b1b1b,
+    #1b1b1b,
+    #1b1b1b,
+    #1b1b1b,
+    #161616,
+    #111111,
+    #090909,
+    #000000
+  );
+  background-size: 1950px 1150px;
+  background-repeat: no-repeat;
+  background-position: fixed;
 }
 
-.logout-btn{
+.no-playback{
+  position: fixed;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  top: 50px;
+  
+  
+  
+}
+
+.logout-btn {
   position: fixed;
   right: 10px;
   top: 5px;
 }
 
-.songinfo{
+.songinfo {
   position: fixed;
   right: -20px;
-  bottom: 30px;
+  top: 30px;
   text-align: right;
 }
 
-.currently-playing{
+.currently-playing {
   position: fixed;
-  left: -20px;
+  left: 20px;
   bottom: 30px;
-
+  text-align: center;
 }
 
-.userwelcome{
+.userwelcome {
   position: fixed;
   left: 10px;
-  top: 5px
+  top: 5px;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   box-sizing: border-box;
 }
 
@@ -49,14 +74,29 @@ html {
   width: 240px;
   height: 240px;
   border-radius: 50%;
-  background: radial-gradient(94px 276px, circle farthest-corner, transparent 22%, #1a4005 22%, #1A4005 35%, transparent 35%),
-          		linear-gradient(top, #96ba2a, #75a621);
+  background: radial-gradient(
+      94px 276px,
+      circle farthest-corner,
+      transparent 22%,
+      #1a4005 22%,
+      #1a4005 35%,
+      transparent 35%
+    ),
+    linear-gradient(top, #96ba2a, #75a621);
   background: linear-gradient(to bottom, #96ba2a, #75a621);
-  border: 1px solid rgba(0, 0, 0, .1);
-  box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
+.spotifybutton{
+  position: fixed;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  top: 5px;
+}
 
 .bar {
   position: absolute;
@@ -67,7 +107,7 @@ html {
   border-right-color: transparent;
   border-bottom-color: transparent;
   border-left-color: transparent;
-  transform: rotate(8deg) scale(.7);
+  transform: rotate(8deg) scale(0.7);
 }
 
 .bar-dark {
@@ -83,34 +123,30 @@ html {
 .bar-med {
   top: 53px;
   left: -44px;
-  transform: rotate(8deg) scale(.6);
+  transform: rotate(8deg) scale(0.6);
   border-top-color: #4a7814;
 }
-
 
 .bar-med::before,
 .bar-med::after {
   background: #4a7814;
 }
 
-
 .bar-light {
   top: 80px;
   left: -49px;
-  transform: rotate(8deg) scale(.5);
+  transform: rotate(8deg) scale(0.5);
   border-top-color: #659620;
 }
-
 
 .bar-light::before,
 .bar-light::after {
   background: #659620;
 }
 
-
 .bar::before,
 .bar::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 29px;
   height: 29px;
@@ -130,13 +166,9 @@ html {
 /* end  */
 
 .App {
-
   text-align: center;
   color: white;
-
-
 }
-
 
 .App-logo {
   height: 40vmin;
@@ -173,6 +205,7 @@ html {
   }
 }
 
-div, button {
-  margin: 15px
+div,
+button {
+  margin: 15px;
 }
