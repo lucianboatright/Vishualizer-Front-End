@@ -72,16 +72,26 @@ const helpers = {
    this.draw()
    },
 
-   //  animate: function(){
+    
 
-   //    console.log("TOP OF ANIMATE")
-   //   window.requestAnimationFrame(this.animate);
-   //   for (var i = 0; i < circleArray.length; i++){
-   //     circleArray[i].update();
-   //   }
-   // }
+    
 
+      
+ }
+
+ var animate = function(){
+  var animationFrameHandle;
+  var animationInterval = setInterval(function() {
+    cancelAnimationFrame(animationFrameHandle)
+    animationFrameHandle = requestAnimationFrame(function() {
+     for (var i = 0; i < circleArray.length; i++){
+       circleArray[i].update();
+     }
+    })
+  }, 100)
 }
+
+animate()
 
 
 
