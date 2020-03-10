@@ -7,11 +7,12 @@ var c = canvas.getContext("2d");
 var circleArray = []
 
 
+
 const helpers = {
 
   init: function() {
 
-    for (var i = 0; i < 100; i++){
+    for (var i = 0; i < 10; i++){
       var radius = Math.random() * 7 + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
@@ -29,6 +30,11 @@ const helpers = {
     // c.stroke();
 
   },
+
+  returnCircleArray: function(){
+    return circleArray;
+  },
+
  // multiply: function(){
  //   console.log(i)
  //    for(var i = 0; i < 100; i++) {
@@ -66,13 +72,14 @@ const helpers = {
    this.draw()
    },
 
-     animate: function(){
-     requestAnimationFrame(this.animate);
-     c.clearRect(0,0,window.innerWidth, window.innerHeight);
-     for (var i = 0; i < circleArray.length; i++){
-       console.log("ANIMATE",circleArray[i])
-     }
-   }
+   //  animate: function(){
+
+   //    console.log("TOP OF ANIMATE")
+   //   window.requestAnimationFrame(this.animate);
+   //   for (var i = 0; i < circleArray.length; i++){
+   //     circleArray[i].update();
+   //   }
+   // }
 
 }
 
