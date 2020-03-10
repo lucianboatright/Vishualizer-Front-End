@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, ButtonGroup, OverlayTrigger } from "react-bootstrap";
 
 class AudioFeatures extends Component {
   constructor(props) {
@@ -67,17 +69,19 @@ class AudioFeatures extends Component {
     
     return (
     <div className="AudioFeatures">
-        <div> Selected song danceability: { getDancelevel[parseFloat(this.state.songFeatures.danceability).toFixed(1)] } Danceability</div>
-        <div> Selected song key: { keyInteger[this.state.songFeatures.key] }</div>
-        <div> Selected song time signature: { this.state.songFeatures.time_signature }</div>
-        <div> Selected song duration: { millisToMinutesAndSeconds(this.state.songFeatures.duration_ms) }</div>
-        <div> Selected song energy: { getEnergylevel[parseFloat(this.state.songFeatures.energy).toFixed(1)] } Energy</div>
-        <div> Selected song tempo: { parseFloat(this.state.songFeatures.tempo).toFixed(0) } BPM</div>
-        <div> Selected song acousticness: { this.state.songFeatures.acousticness }</div>
-        <div> Selected song instrumentalness: { setInstrumentalnessValue(this.state.songFeatures.instrumentalness) }</div>
-        <div> Selected song valence: { getValencelevel[parseFloat(this.state.songFeatures.valence).toFixed(1)] }</div>
-        <div> Selected song liveness: { getLivenessLevel[parseFloat(this.state.songFeatures.liveness).toFixed(1)] }</div>
-        <div> Selected song loudness: { setLoudnessLevel(this.state.songFeatures.loudness) }</div>
+      <ButtonGroup vertical>
+        <Button variant='outline-light'>Selected song danceability: { getDancelevel[parseFloat(this.state.songFeatures.danceability).toFixed(1)] } Danceability</Button>
+        <Button variant='outline-light'> Selected song key: { keyInteger[this.state.songFeatures.key] }</Button>
+        <Button variant='outline-light'> Selected song time signature: { this.state.songFeatures.time_signature }</Button>
+        <Button variant='outline-light'> Selected song duration: { millisToMinutesAndSeconds(this.state.songFeatures.duration_ms) }</Button>
+        <Button variant='outline-light'> Selected song energy: { getEnergylevel[parseFloat(this.state.songFeatures.energy).toFixed(1)] } </Button>
+        <Button variant='outline-light'> Selected song tempo: { parseFloat(this.state.songFeatures.tempo).toFixed(0) } </Button>
+        <Button variant='outline-light'> Selected song acousticness: { this.state.songFeatures.acousticness }</Button>
+        <Button variant='outline-light'> Selected song instrumentalness: { setInstrumentalnessValue(this.state.songFeatures.instrumentalness) }</Button>
+        <Button variant='outline-light'> Selected song valence: { getValencelevel[parseFloat(this.state.songFeatures.valence).toFixed(1)] }</Button>
+        <Button variant='outline-light'> Selected song liveness: { getLivenessLevel[parseFloat(this.state.songFeatures.liveness).toFixed(1)] }</Button>
+        <Button variant='outline-light'> Selected song loudness: { setLoudnessLevel(this.state.songFeatures.loudness) }</Button>
+      </ButtonGroup>
     </div>
     )
   }

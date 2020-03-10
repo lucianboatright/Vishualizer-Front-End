@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import PlayerController from './PlayerController'
 import Spotify from "spotify-web-api-js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
+import { Button, OverlayTrigger } from "react-bootstrap";
 
 const spotifyWebApi = new Spotify();
 
