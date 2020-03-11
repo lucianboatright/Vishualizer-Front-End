@@ -66,12 +66,12 @@ const helpers = {
       }
     }
     circleArray = [];
-    for (var i = 0; i < energy; i++) {
-      var radius = Math.random() * tempo + 1;
+    for (var i = 0; i < danceability; i++) {
+      var radius = Math.random() * energy + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
-      var dx = (Math.random() - 0.5) * danceability;
-      var dy = (Math.random() - 0.5) * danceability;
+      var dx = (Math.random() - 0.5) * tempo;
+      var dy = (Math.random() - 0.5) * tempo;
 
       circleArray.push(new this.MovingCircle(x, y, dx, dy, radius, array));
     }
