@@ -36,6 +36,8 @@ body {
   position: fixed;
   right: 10px;
   top: 5px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .songinfo {
@@ -44,6 +46,8 @@ body {
   bottom: 20px;
   text-align: right;
   z-index: inherit;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .currently-playing {
@@ -52,13 +56,14 @@ body {
   left: 25px;
   bottom: 30px;
   text-align: left;
-
 }
 
 .userwelcome {
   position: fixed;
   left: 10px;
   top: 5px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 *,
@@ -172,6 +177,8 @@ html {
 .App {
   text-align: center;
   color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .App-logo {
