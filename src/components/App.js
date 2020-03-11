@@ -36,7 +36,6 @@ class App extends Component {
 
     this.audioFeatures = React.createRef();
   }
-  
 
   componentDidMount() {
     this.Interval = setInterval(() => this.getNowPlaying(), 5000);
@@ -98,7 +97,6 @@ class App extends Component {
 
     return (
       <div className="App">
-
         {(() => {
           if (this.state.loggedIn) {
             return (
@@ -112,13 +110,11 @@ class App extends Component {
             );
           } else {
             return (
-
               <div>
                 <div className="spotify">
                   <div className="bar bar-dark"></div>
                   <div className="bar bar-med"></div>
                   <div className="bar bar-light"></div>
-
                 </div>
                 <h1>Please Login Using Spotify</h1>
                 <br></br>
@@ -134,24 +130,18 @@ class App extends Component {
         {(() => {
           if (this.state.loggedIn && this.state.nowPlaying.id) {
             return (
-
-    
-
               <div className="currently-playing">
                 <div className="now-playing">
-
                   <h2>Now Playing:</h2>
                   <h5>
-                    {this.state.nowPlaying.name} 
-                    <h5>
+                    {this.state.nowPlaying.name}
                     {this.state.nowPlaying.artist}
-                    </h5>
                   </h5>
                 </div>
 
                 <div className="nowplayingimage">
-                  <img alt="Album Art Work"
-
+                  <img
+                    alt="Album Art Work"
                     src={this.state.nowPlaying.image}
                     style={{ width: 200 }}
                   />
@@ -175,7 +165,11 @@ class App extends Component {
             );
           } else {
             if (this.state.loggedIn) {
-              return <div class="no-playback"><h1>No Playback detected</h1></div>;
+              return (
+                <div className="no-playback">
+                  <h1>No Playback detected</h1>
+                </div>
+              );
             }
           }
         })()}
