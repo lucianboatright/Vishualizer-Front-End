@@ -23,7 +23,7 @@ var circleArray = [];
 var colorArray = ["#FF8200", "#FF9300", "#FFC018", "#F28627", "#F26B1D"];
 
 const helpers = {
-  init: function(energy, tempo) {
+  init: function(key, danceability, energy, tempo) {
     circleArray = [];
     for (var i = 0; i < 100; i++) {
       var radius = Math.random() * tempo + 1;

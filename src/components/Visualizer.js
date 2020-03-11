@@ -16,6 +16,8 @@ class Visualizer extends Component {
 
   render() {
     helpers.init(
+      this.props.songFeatures.key,
+      this.props.songFeatures.danceability,
       this.props.songFeatures.energy * 5,
       this.props.songFeatures.tempo
     );
