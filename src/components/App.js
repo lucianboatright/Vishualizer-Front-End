@@ -148,8 +148,10 @@ class App extends Component {
                     </h5>
                   </h5>
                 </div>
+
                 <div className="nowplayingimage">
-                  <img
+                  <img alt="Album Art Work"
+
                     src={this.state.nowPlaying.image}
                     style={{ width: 200 }}
                   />

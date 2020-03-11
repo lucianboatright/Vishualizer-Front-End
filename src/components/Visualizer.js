@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { render } from "react-dom";
+// import { render } from "react-dom";
 import helpers from '../helpers/hooks'
 
 // import { Stage, Layer, Circle, Line, Text, Rect } from "react-konva";
