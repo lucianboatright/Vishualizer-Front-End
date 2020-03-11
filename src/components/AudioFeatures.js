@@ -134,9 +134,6 @@ class AudioFeatures extends Component {
 
     return (
 
-
-
-
     <div className="AudioFeatures">
        <Visualizer
           songFeatures={this.state.songFeatures}
@@ -164,20 +161,18 @@ class AudioFeatures extends Component {
         overlay={<Tooltip>This song is exactly {this.state.songFeatures.duration_ms} milliseconds long</Tooltip>}>
         <Button variant='outline-light'> Duration: { millisToMinutesAndSeconds(this.state.songFeatures.duration_ms) }</Button>
         </OverlayTrigger>
+      
         <OverlayTrigger
         key='top'
         overlay={<Tooltip>Spotify says this is {this.state.songFeatures.energy*100}% energetic</Tooltip>}>
         <Button variant='outline-light'> Energy: { getEnergylevel[parseFloat(this.state.songFeatures.energy).toFixed(1)] } </Button>
         </OverlayTrigger>
+      </ButtonGroup>
+      <ButtonGroup vertical>
         <OverlayTrigger
         key='top'
         overlay={<Tooltip>The Tempo for the song is {this.state.songFeatures.tempo}</Tooltip>}>
         <Button variant='outline-light'> BPM: { parseFloat(this.state.songFeatures.tempo).toFixed(0) } </Button>
-        </OverlayTrigger>
-        <OverlayTrigger
-        key='top'
-        overlay={<Tooltip>There is a {this.state.songFeatures.acousticness*100}% chance that this song is acoustic</Tooltip>}>
-        <Button variant='outline-light'> Acousticness: { this.state.songFeatures.acousticness }</Button>
         </OverlayTrigger>
         <OverlayTrigger
         key='top'
@@ -199,7 +194,8 @@ class AudioFeatures extends Component {
         overlay={<Tooltip>This track is mastered at {(this.state.songFeatures.loudness)+60}dB</Tooltip>}>
         <Button variant='outline-light'> Loudness: { setLoudnessLevel(this.state.songFeatures.loudness) }</Button>
         </OverlayTrigger>
-      </ButtonGroup>
+        </ButtonGroup>
+      
     </div>
     )
 
