@@ -134,9 +134,6 @@ class AudioFeatures extends Component {
 
     return (
 
-
-
-
     <div className="AudioFeatures">
        <Visualizer
           songFeatures={this.state.songFeatures}
@@ -178,11 +175,6 @@ class AudioFeatures extends Component {
         <Button variant='outline-light'> BPM: { parseFloat(this.state.songFeatures.tempo).toFixed(0) } </Button>
         </OverlayTrigger>
         <OverlayTrigger
-        // key='top'
-        // overlay={<Tooltip>There is a {this.state.songFeatures.acousticness*100}% chance that this song is acoustic</Tooltip>}>
-        // <Button variant='outline-light'> Acousticness: { this.state.songFeatures.acousticness }</Button>
-        // </OverlayTrigger>
-        // <OverlayTrigger
         key='top'
         overlay={<Tooltip>There is a {this.state.songFeatures.instrumentalness*100}% chance of not having vocals</Tooltip>}>
         <Button variant='outline-light'> Instrumentalness: { setInstrumentalnessValue(this.state.songFeatures.instrumentalness) }</Button>
