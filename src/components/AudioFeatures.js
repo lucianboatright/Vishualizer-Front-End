@@ -33,7 +33,6 @@ class AudioFeatures extends Component {
   }
 
   render() {
-    console.log("this.state 2", this.state);
     const keyInteger = {
       0: "C",
       1: "C♯/D♭",

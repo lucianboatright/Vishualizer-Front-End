@@ -23,14 +23,14 @@ var circleArray = [];
 var colorArray = ["#FF8200", "#FF9300", "#FFC018", "#F28627", "#F26B1D"];
 
 const helpers = {
-  init: function() {
+  init: function(energy, tempo) {
     circleArray = [];
     for (var i = 0; i < 100; i++) {
-      var radius = Math.random() * 10 + 1;
+      var radius = Math.random() * tempo + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
-      var dx = (Math.random() - 0.5) * 8;
-      var dy = (Math.random() - 0.5) * 8;
+      var dx = (Math.random() - 0.5) * energy;
+      var dy = (Math.random() - 0.5) * energy;
 
       circleArray.push(new this.MovingCircle(x, y, dx, dy, radius));
     }
