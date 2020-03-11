@@ -30,8 +30,7 @@ body {
   margin-right: auto;
   width: 100%;
   top: 50px;
-  
-  
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   
 }
 
@@ -39,6 +38,8 @@ body {
   position: fixed;
   right: 10px;
   top: 5px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .songinfo {
@@ -47,6 +48,8 @@ body {
   top: 30px;
   text-align: right;
   z-index: inherit;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .currently-playing {
@@ -55,6 +58,7 @@ body {
   left: 20px;
   bottom: 30px;
   text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 }
 
@@ -62,6 +66,8 @@ body {
   position: fixed;
   left: 10px;
   top: 5px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 *,
@@ -175,6 +181,8 @@ html {
 .App {
   text-align: center;
   color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .App-logo {
