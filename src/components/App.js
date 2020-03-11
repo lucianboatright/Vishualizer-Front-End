@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import "./App.css";
 import AudioFeatures from "./AudioFeatures";
-import Visualizer from "./Visualizer";
+// import Visualizer from "./Visualizer";
 import UserFeatures from "./UserFeatures";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -98,7 +98,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Visualizer/>
+
         {(() => {
           if (this.state.loggedIn) {
             return (
@@ -112,11 +112,13 @@ class App extends Component {
             );
           } else {
             return (
-              <div class ="spotifybutton">
-                <div class="spotify">
-                  <div class="bar bar-dark"></div>
-                  <div class="bar bar-med"></div>
-                  <div class="bar bar-light"></div>
+
+              <div>
+                <div className="spotify">
+                  <div className="bar bar-dark"></div>
+                  <div className="bar bar-med"></div>
+                  <div className="bar bar-light"></div>
+
                 </div>
                 <h1>Please Login Using Spotify</h1>
                 <br></br>
@@ -132,8 +134,12 @@ class App extends Component {
         {(() => {
           if (this.state.loggedIn && this.state.nowPlaying.id) {
             return (
-              <div class="currently-playing">
+
+    
+
+              <div className="currently-playing">
                 <div className="now-playing">
+
                   <h2>Now Playing:</h2>
                   <h5>
                     {this.state.nowPlaying.name} 
@@ -149,14 +155,14 @@ class App extends Component {
                   />
                 </div>
 
-                <div class="userwelcome">
+                <div className="userwelcome">
                   <UserFeatures
                     ref={this.userFeatures}
                     oAuth={this.state.oAuth}
                   />
                 </div>
 
-                <div class="songinfo">
+                <div className="songinfo">
                   <AudioFeatures
                     id={this.state.nowPlaying.id}
                     ref={this.audioFeatures}
