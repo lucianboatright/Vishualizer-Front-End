@@ -152,9 +152,9 @@ class App extends Component {
                   <h2>Now Playing:</h2>
                   <h5>
                     {this.state.nowPlaying.name} 
-                    <h5>
+                    <h4>
                     {this.state.nowPlaying.artist}
-                    </h5>
+                    </h4>
                   </h5>
                 </div>
 

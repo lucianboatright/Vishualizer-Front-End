@@ -143,7 +143,7 @@ class AudioFeatures extends Component {
           ref={this.Visualizer}
         />
     
-      <ButtonGroup vertical>
+      <ButtonGroup horizontal>
         <OverlayTrigger
         key='top'
         overlay={<Tooltip> The danceability of this song is {this.state.songFeatures.danceability*100}%</Tooltip>}>

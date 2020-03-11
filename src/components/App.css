@@ -30,9 +30,6 @@ body {
   margin-right: auto;
   width: 100%;
   top: 50px;
-  
-  
-  
 }
 
 .logout-btn {
@@ -54,7 +51,7 @@ body {
   position: fixed;
   left: 20px;
   bottom: 30px;
-  text-align: center;
+  text-align: left;
 
 }
 
