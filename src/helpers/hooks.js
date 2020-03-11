@@ -12,7 +12,7 @@ const helpers = {
 
   init: function() {
 
-    for (var i = 0; i < 10; i++){
+    for (var i = 0; i < 100; i++){
       var radius = Math.random() * 7 + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
@@ -68,6 +68,7 @@ const helpers = {
       }
       this.x += this.dx;
       this.y += this.dy;
+      this.draw()
     };
    this.draw()
    },
@@ -77,21 +78,32 @@ const helpers = {
     
 
       
- }
+ 
 
- var animate = function(){
-  var animationFrameHandle;
-  var animationInterval = setInterval(function() {
-    cancelAnimationFrame(animationFrameHandle)
-    animationFrameHandle = requestAnimationFrame(function() {
+    animate: function(){
+
+     console.log("TOP OF ANIMATE")
+     c.clearRect(0,0,window.innerWidth,window.innerHeight);
      for (var i = 0; i < circleArray.length; i++){
        circleArray[i].update();
      }
-    })
-  }, 100)
+     requestAnimationFrame(() => this.animate());
+   }
+
+
+ // var animate = function(){
+ //  var animationFrameHandle;
+ //  var animationInterval = setInterval(function() {
+ //    cancelAnimationFrame(animationFrameHandle)
+ //    animationFrameHandle = requestAnimationFrame(function() {
+ //     for (var i = 0; i < circleArray.length; i++){
+ //       circleArray[i].update();
+ //     }
+ //    })
+ //  }, 100)
 }
 
-animate()
+
 
 
 
