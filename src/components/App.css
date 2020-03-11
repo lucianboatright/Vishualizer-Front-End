@@ -19,6 +19,22 @@ body {
   background-position: fixed;
 }
 
+.App{
+  margin: 0px;
+}
+
+.no-playback{
+  position: fixed;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  top: 50px;
+  
+  
+  
+}
+
 .logout-btn {
   position: fixed;
   right: 10px;
@@ -34,7 +50,12 @@ body {
 }
 
 .currently-playing {
-  z-index: 1;
+
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+  text-align: center;
+
 }
 
 .userwelcome {
@@ -73,6 +94,15 @@ html {
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+}
+
+.spotifybutton{
+  position: fixed;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  top: 5px;
 }
 
 .bar {

@@ -8,7 +8,9 @@ import "./App.css";
 
 class Visualizer extends Component {
   componentDidMount() {
+
     helpers.init();
+    helpers.animate();
     console.log("VIS CIRCLE ARRAY",helpers.returnCircleArray())
     // helpers.animate();
     // for (var i = 0; i < 20; i++) {
@@ -20,6 +22,7 @@ class Visualizer extends Component {
     //     blue: Math.random() * 255
     //   });
     // }
+
   }
 
   render() {

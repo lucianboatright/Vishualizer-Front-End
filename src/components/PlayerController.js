@@ -67,7 +67,7 @@
 
 //   render() {
 //     return (
-//       <div>
+//       <div className="playercontrollerrender">
 //         <canvas className="outline ml4" id="player" width="500" height="100"></canvas>
 //       </div>
 //     );

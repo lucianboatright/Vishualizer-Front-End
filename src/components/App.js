@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import PlayerController from './PlayerController'
 import Spotify from "spotify-web-api-js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
+import { Button, OverlayTrigger } from "react-bootstrap";
 
 const spotifyWebApi = new Spotify();
 
@@ -36,6 +36,7 @@ class App extends Component {
 
     this.audioFeatures = React.createRef();
   }
+  
 
   componentDidMount() {
     this.Interval = setInterval(() => this.getNowPlaying(), 5000);
@@ -97,6 +98,7 @@ class App extends Component {
 
     return (
       <div className="App">
+
         {(() => {
           if (this.state.loggedIn) {
             return (
@@ -110,15 +112,17 @@ class App extends Component {
             );
           } else {
             return (
+
               <div>
                 <div className="spotify">
                   <div className="bar bar-dark"></div>
                   <div className="bar bar-med"></div>
                   <div className="bar bar-light"></div>
+
                 </div>
                 <h1>Please Login Using Spotify</h1>
                 <br></br>
-                <a href="http://localhost:8888">
+                <a href="http://localhost:8888/login">
                   <Button variant="outline-success" size="lg">
                     Login
                   </Button>
@@ -127,18 +131,24 @@ class App extends Component {
             );
           }
         })()}
-
         {(() => {
           if (this.state.loggedIn && this.state.nowPlaying.id) {
             return (
+
+    
+
               <div className="currently-playing">
-                <div>
+                <div className="now-playing">
+
                   <h2>Now Playing:</h2>
                   <h5>
-                    {this.state.nowPlaying.name}, {this.state.nowPlaying.artist}
+                    {this.state.nowPlaying.name} 
+                    <h5>
+                    {this.state.nowPlaying.artist}
+                    </h5>
                   </h5>
                 </div>
-                <div>
+                <div className="nowplayingimage">
                   <img
                     src={this.state.nowPlaying.image}
                     style={{ width: 200 }}
@@ -163,7 +173,7 @@ class App extends Component {
             );
           } else {
             if (this.state.loggedIn) {
-              return "No Playback detected";
+              return <div class="no-playback"><h1>No Playback detected</h1></div>;
             }
           }
         })()}
