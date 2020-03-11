@@ -20,19 +20,51 @@ window.addEventListener("mousemove", function(event) {
 });
 
 var circleArray = [];
-var colorArray = ["#FF8200", "#FF9300", "#FFC018", "#F28627", "#F26B1D"];
+
+var colorArray = [
+  ["#FF8200", "#FF9300", "#FFC018", "#F28627", "#F26B1D"],
+  ["#FFB7B3", "#FFCCBD", "#C0BAF7", "#B0CAFF", "#97B2F0"],
+  ["#384B66", "#C7D5EA", "#265698", "#7EA9E6", "#6284B3"],
+  ["#15244E", "#592D86", "#982C8F", "#FF2E9C", "#FF9D28"],
+  ["#D91604", "#A60303", "#730202", "#400101", "#0D0D0D"]
+];
+
+function getColor(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+// var array =
+//   colorArray[
+//     Math.floor(Math.random() * colorArray.length  + colorArray.length];
+// console.log("array", array);
 
 const helpers = {
-  init: function(dance, energy, tempo) {
+  init: function(key, danceability, energy, tempo, duration_ms) {
+    var array = getColor(0, colorArray.length);
+    var duration = duration_ms;
+    console.dir("duration", duration);
+    if (duration !== undefined) {
+      var hexString = duration.toString(16);
+      console.log("hexstring", hexString);
+
+      if (hexString.length == 6) {
+        let new_hex = "#" + hexString;
+        colorArray.push(new_hex);
+      } else if (hexString.length == 5) {
+        let new_hex = "#" + hexString + "F";
+        colorArray.pop();
+        colorArray.push(new_hex);
+      }
+    }
     circleArray = [];
-    for (var i = 0; i < 100; i++) {
-      var radius = Math.random() * dance + 1;
+    for (var i = 0; i < energy; i++) {
+      var radius = Math.random() * tempo + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
-      var dx = (Math.random() - 0.5) * tempo;
-      var dy = (Math.random() - 0.5) * tempo;
+      var dx = (Math.random() - 0.5) * danceability;
+      var dy = (Math.random() - 0.5) * danceability;
 
-      circleArray.push(new this.MovingCircle(x, y, dx, dy, radius));
+      circleArray.push(new this.MovingCircle(x, y, dx, dy, radius, array));
     }
   },
 
@@ -40,16 +72,24 @@ const helpers = {
     return circleArray;
   },
 
-  MovingCircle: function(x, y, dx, dy, radius) {
+  MovingCircle: function(x, y, dx, dy, radius, array) {
+    console.log("ARRAY!!!", array);
     this.x = x;
     this.y = y;
     this.dx = dx;
     this.dy = dy;
     this.radius = radius;
     this.minRadius = radius;
-    this.maxRadius = 30;
-    this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
+    this.maxRadius = 200;
+    this.count = colorArray.length;
+    this.random = Math.floor(Math.random() * this.count);
+    this.color =
+      colorArray[Math.floor(Math.random() * array)][
+        Math.floor(Math.random() * colorArray.length)
+      ];
 
+    console.log("color", this.color);
+    console.log("rand", colorArray);
     this.draw = function() {
       c.beginPath();
       c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
@@ -86,7 +126,6 @@ const helpers = {
       } else if (this.radius > this.minRadius) {
         this.radius -= 1;
       }
-
       this.draw();
     };
     this.draw();
