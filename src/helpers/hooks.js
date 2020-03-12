@@ -48,7 +48,7 @@ function getColor(min, max) {
 // console.log("array", array);
 
 const helpers = {
-  init: function(key, danceability, energy, tempo, duration_ms) {
+  init: function(key, danceability, energy, tempo, duration_ms, valence) {
     var array = getColor(0, colorArray.length);
     var duration = duration_ms;
     console.dir("duration", duration);
@@ -67,11 +67,11 @@ const helpers = {
     }
     circleArray = [];
     for (var i = 0; i < danceability; i++) {
-      var radius = Math.random() * energy + 1;
+      var radius = Math.random() * (100/valence) + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
-      var dx = (Math.random() - 0.5) * tempo;
-      var dy = (Math.random() - 0.5) * tempo;
+      var dx = (Math.random() - 0.5) * energy;
+      var dy = (Math.random() - 0.5) * energy;
 
       circleArray.push(new this.MovingCircle(x, y, dx, dy, radius, array));
     }
