@@ -34,8 +34,7 @@ var colorArray = [
   ["#C0D904", "#E8F299", "#EDF2C2", "#F27405", "#BF6E50"],
   ["#F2EB80", "#F2CF8D", "#591711", "#8C0303", "#260606"],
   ["#131A40", "#355B8C", "#081826", "#17AEBF", "#30F2F2"],
-  ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
-
+  ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"]
 ];
 
 function getColor(min, max) {
@@ -67,22 +66,33 @@ const helpers = {
     }
     circleArray = [];
     for (var i = 0; i < danceability; i++) {
-      var radius = Math.random() * (100/valence) + 1;
+      var radius = Math.random() * (100 / valence) + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
-      var dx = (Math.random() - 0.5) * energy/2;
-      var dy = (Math.random() - 0.5) * energy/2;
+      var dx = ((Math.random() - 0.5) * energy) / 2;
+      var dy = ((Math.random() - 0.5) * energy) / 2;
 
-      circleArray.push(new this.MovingCircle(x, y, dx, dy, radius, array));
+      circleArray.push(new this.MovingCircle(x, y, dx, dy, radius, key));
     }
+  },
+
+  triangle: function() {
+    c.beginPath();
+    c.moveTo(75, 50);
+    c.lineTo(100, 75);
+    c.lineTo(100, 25);
+    c.closePath();
+    c.strokeStyle = "#666666";
+    c.fill();
   },
 
   returnCircleArray: function() {
     return circleArray;
   },
 
-  MovingCircle: function(x, y, dx, dy, radius, array) {
-    console.log("ARRAY!!!", array);
+  MovingCircle: function(x, y, dx, dy, radius, key) {
+    console.log("ARRAY!!!", key);
+    console.log("color", colorArray[key - 1]);
     this.x = x;
     this.y = y;
     this.dx = dx;
@@ -90,15 +100,11 @@ const helpers = {
     this.radius = radius;
     this.minRadius = radius;
     this.maxRadius = 200;
-    this.count = colorArray.length;
-    this.random = Math.floor(Math.random() * this.count);
-    this.color =
-      colorArray[Math.floor(Math.random() * array)][
-        Math.floor(Math.random() * colorArray.length)
-      ];
+    this.colorChoice = colorArray[key];
+    this.color = this.colorChoice[
+      Math.floor(Math.random() * this.colorChoice.length)
+    ];
 
-    console.log("color", this.color);
-    console.log("rand", colorArray);
     this.draw = function() {
       c.beginPath();
       c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);

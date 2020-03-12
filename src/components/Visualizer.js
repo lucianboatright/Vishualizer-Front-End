@@ -17,12 +17,13 @@ class Visualizer extends Component {
   render() {
     helpers.init(
       this.props.songFeatures.key,
-      this.props.songFeatures.danceability *50,
+      this.props.songFeatures.danceability * 50,
       this.props.songFeatures.energy * 20,
-      this.props.songFeatures.tempo/10,
+      this.props.songFeatures.tempo / 10,
       this.props.songFeatures.duration_ms,
-      this.props.songFeatures.valence*10
+      this.props.songFeatures.valence * 10
     );
+    helpers.triangle();
     helpers.animate();
     return <div></div>;
   }
