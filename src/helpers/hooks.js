@@ -70,8 +70,8 @@ const helpers = {
       var radius = Math.random() * (100/valence) + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
-      var dx = (Math.random() - 0.5) * energy;
-      var dy = (Math.random() - 0.5) * energy;
+      var dx = (Math.random() - 0.5) * energy/2;
+      var dy = (Math.random() - 0.5) * energy/2;
 
       circleArray.push(new this.MovingCircle(x, y, dx, dy, radius, array));
     }
