@@ -1,35 +1,30 @@
 import React, { Component } from "react";
+import helpers from "../helpers/hooks";
 
-// import { render } from "react-dom";
-import helpers from '../helpers/hooks'
-
-// import { Stage, Layer, Circle, Line, Text, Rect } from "react-konva";
 import "./App.css";
 
 class Visualizer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   componentDidMount() {
-
-    helpers.init();
-    helpers.animate();
-    console.log("VIS CIRCLE ARRAY",helpers.returnCircleArray())
-    // helpers.animate();
-    // for (var i = 0; i < 20; i++) {
-    //   this.state.circleArray.push({
-    //     x: Math.random() * window.innerWidth,
-    //     y: Math.random() * window.innerHeight,
-    //     red: Math.random() * 255,
-    //     green: Math.random() * 255,
-    //     blue: Math.random() * 255
-    //   });
-    // }
-
+    this.setState({
+      features: this.props.songFeatures
+    });
   }
 
   render() {
-    return (
-
-      <div></div>
+    helpers.init(
+      this.props.songFeatures.key,
+      this.props.songFeatures.danceability *50,
+      this.props.songFeatures.energy * 20,
+      this.props.songFeatures.tempo/10,
+      this.props.songFeatures.duration_ms,
+      this.props.songFeatures.valence*10
     );
+    helpers.animate();
+    return <div></div>;
   }
 }
 
