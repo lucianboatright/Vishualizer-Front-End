@@ -15,6 +15,7 @@ class Visualizer extends Component {
   }
 
   render() {
+    helpers.triangle();
     helpers.init(
       this.props.songFeatures.key,
       this.props.songFeatures.danceability * 50,
@@ -23,7 +24,6 @@ class Visualizer extends Component {
       this.props.songFeatures.duration_ms,
       this.props.songFeatures.valence * 10
     );
-    helpers.triangle();
     helpers.animate();
     return <div></div>;
   }

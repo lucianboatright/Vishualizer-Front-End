@@ -50,7 +50,6 @@ const helpers = {
   init: function(key, danceability, energy, tempo, duration_ms, valence) {
     var array = getColor(0, colorArray.length);
     var duration = duration_ms;
-    console.dir("duration", duration);
     if (duration !== undefined) {
       var hexString = duration.toString(16);
       console.log("hexstring", hexString);
@@ -69,20 +68,28 @@ const helpers = {
       var radius = Math.random() * (100 / valence) + 1;
       var x = Math.random() * (window.innerWidth - radius * 2) + radius;
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
-      var dx = ((Math.random() - 0.5) * energy) / 2;
-      var dy = ((Math.random() - 0.5) * energy) / 2;
+      var dx = ((Math.random() - 0.5) * energy) / 3;
+      var dy = ((Math.random() - 0.5) * energy) / 3;
 
       circleArray.push(new this.MovingCircle(x, y, dx, dy, radius, key));
     }
   },
 
   triangle: function() {
+    console.log("triangle");
     c.beginPath();
-    c.moveTo(75, 50);
-    c.lineTo(100, 75);
-    c.lineTo(100, 25);
+    c.moveTo(200, 300);
+    c.lineTo(300, 300);
+    c.lineTo(200, 300 - 30);
     c.closePath();
+
+    // the outline
+    c.lineWidth = 10;
     c.strokeStyle = "#666666";
+    c.stroke();
+
+    // the fill color
+    c.fillStyle = "#FFCC00";
     c.fill();
   },
 
@@ -91,8 +98,6 @@ const helpers = {
   },
 
   MovingCircle: function(x, y, dx, dy, radius, key) {
-    console.log("ARRAY!!!", key);
-    console.log("color", colorArray[key - 1]);
     this.x = x;
     this.y = y;
     this.dx = dx;
