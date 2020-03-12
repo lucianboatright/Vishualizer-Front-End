@@ -100,6 +100,14 @@ class App extends Component {
         {(() => {
           if (this.state.loggedIn) {
             return (
+            <div>
+              <div className="userwelcome">
+                  <UserFeatures
+                    ref={this.userFeatures}
+                    oAuth={this.state.oAuth}
+                  />
+                </div>
+
               <div className="logout-btn">
                 <a href="https://accounts.spotify.com/en/logout ">
                   <Button variant="outline-success" size="sm">
@@ -107,6 +115,7 @@ class App extends Component {
                   </Button>
                 </a>
               </div>
+            </div>
             );
           } else {
             return (
@@ -138,6 +147,8 @@ class App extends Component {
                   </h5>
                   <h5>
                     {this.state.nowPlaying.artist}
+
+
                   </h5>
                 </div>
 
@@ -148,13 +159,7 @@ class App extends Component {
                     style={{ width: 200 }}
                   />
                 </div>
-
-                <div className="userwelcome">
-                  <UserFeatures
-                    ref={this.userFeatures}
-                    oAuth={this.state.oAuth}
-                  />
-                </div>
+                
 
                 <div className="songinfo">
                   <AudioFeatures
