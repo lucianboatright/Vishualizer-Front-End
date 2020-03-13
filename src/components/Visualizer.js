@@ -15,7 +15,6 @@ class Visualizer extends Component {
   }
 
   render() {
-    helpers.triangle();
     helpers.init(
       this.props.songFeatures.key,
       this.props.songFeatures.danceability * 50,

@@ -41,11 +41,6 @@ function getColor(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-// var array =
-//   colorArray[
-//     Math.floor(Math.random() * colorArray.length  + colorArray.length];
-// console.log("array", array);
-
 const helpers = {
   init: function(key, danceability, energy, tempo, duration_ms, valence) {
     var array = getColor(0, colorArray.length);
@@ -56,11 +51,11 @@ const helpers = {
 
       if (hexString.length == 6) {
         let new_hex = "#" + hexString;
-        colorArray.push(new_hex);
+        colorArray[key].push(new_hex);
       } else if (hexString.length == 5) {
         let new_hex = "#" + hexString + "F";
-        colorArray.pop();
-        colorArray.push(new_hex);
+        colorArray[key].pop();
+        colorArray[key].push(new_hex);
       }
     }
     circleArray = [];
@@ -73,24 +68,6 @@ const helpers = {
 
       circleArray.push(new this.MovingCircle(x, y, dx, dy, radius, key));
     }
-  },
-
-  triangle: function() {
-    console.log("triangle");
-    c.beginPath();
-    c.moveTo(200, 300);
-    c.lineTo(300, 300);
-    c.lineTo(200, 300 - 30);
-    c.closePath();
-
-    // the outline
-    c.lineWidth = 10;
-    c.strokeStyle = "#666666";
-    c.stroke();
-
-    // the fill color
-    c.fillStyle = "#FFCC00";
-    c.fill();
   },
 
   returnCircleArray: function() {
