@@ -158,7 +158,7 @@ class AudioFeatures extends Component {
             key="key"
             overlay={
               <Tooltip>
-                The song is written in the{" "}
+                Controls the color. This song is written in the{" "}
                 {keyInteger[this.state.songFeatures.key]} key
               </Tooltip>
             }
@@ -201,8 +201,8 @@ class AudioFeatures extends Component {
             key="energy"
             overlay={
               <Tooltip>
-                Spotify says this is {this.state.songFeatures.energy * 100}%
-                energetic
+                Controls the speed. Spotify says this is{" "}
+                {this.state.songFeatures.energy * 100}% energetic
               </Tooltip>
             }
           >
@@ -264,8 +264,8 @@ class AudioFeatures extends Component {
             key="valence"
             overlay={
               <Tooltip>
-                Spotify says this is {this.state.songFeatures.valence * 100}%
-                positive
+                Controls the size of the circles. Spotify says this is{" "}
+                {this.state.songFeatures.valence * 100}% positive
               </Tooltip>
             }
           >
