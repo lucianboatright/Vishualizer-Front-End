@@ -1,68 +1,114 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Vishualizer
 
-## Available Scripts
 
-In the project directory, you can run:
+This project has been designed to enhance your Spotify listening experience with a Visualizer. 
 
-### `yarn start`
+The program dyamicaly changes from song to song by taking the information recived in the Spotify api (which descibes the Song Features). Spotify has several api's which contain a range of information from the Current user, the users current play state and song information. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We used the song Audio Features to alter the visualizer which closer matches the song being played. This api call recives information on a range of perameters like Danceability, Tempo to its Valance(positivity) from which the program alters the size, speed, color and more. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `yarn build`
+To use this program from your computer there are a few steps that need to be followed.
+Create a new directory in which you will make two sub directories, one for the Client side and the other for the Server. Make sure you clone each repository in its respective folder.
+Client Front End repository is liked here:
+Server Back End repository from the following link:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After both repository are cloned then in each root directory run npm install in order to download the required packages which enable the program to both run and be tested.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+At this point you will need to open two separate terminals. Direct the terminal to the root directory of each folder and follow the desciption below 
+To load the Front End server run: npm start
+To load the Back End server run: node authorization_code/App.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Prerequisites
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This program is designed to work through a browser and is supported on both Firefox and Chrome. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+Give examples
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Installing
 
-## Learn More
+A step by step series of examples that tell you how to get a development env running
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Say what the step will be
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+Give the example
+```
 
-### Code Splitting
+And repeat
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+until finished
+```
 
-### Analyzing the Bundle Size
+End with an example of getting some data out of the system or using it for a little demo
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Running the tests
 
-### Making a Progressive Web App
+Explain how to run the automated tests for this system
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Break down into end to end tests
 
-### Advanced Configuration
+Explain what these tests test and why
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+Give an example
+```
 
-### Deployment
+### And coding style tests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+We used two test frame works for this project.
+Unit Test were done using Jest which is a Java script based test bed.
 
-### `yarn build` fails to minify
+Features Test were built around the Cypress test framework which was used on the 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+We used a range of languages and frameworks to build this program.
+
+Npm: Was used to build the frame work of the back end server.
+
+
+
+## Contributing
+
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+Built by 
+Tom Walker:
+Alicia Merlino:
+Vish Mayer:
+Lucian Boatright-Roberts:
+
+## License
+
+This project is a learning non for profit test bed to showcase our growing skills and abilities. This program conforms to Spotifies Terms and Conditions as it both represents Spotify Logo as required and is not for profit product.
+
+## Acknowledgments
+
+Coaching staff at Makers
+Josh Hill
+Alice Lieutier
+Tatsiana Ivonchyk 
+
+
